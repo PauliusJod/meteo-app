@@ -31,12 +31,10 @@ export default function MeteoReport(props) {
   useEffect(() => {
     dataOut(data);
     dataIndexOut(choosenMarkerWeather);
-  }, [choosenMarkerWeather]);
+  }, [dataOut, dataIndexOut, data, choosenMarkerWeather]);
 
   const fetchData = async () => {
     const weatherPromises = mapMarkers.map(async (item) => {
-      console.log("startDate: ", startDate.toISOString().split("T")[0]);
-      console.log("endDate: ", endDate);
       try {
         const response = await axios.get(
           `${API_URL}?latitude=${item.lat}&longitude=${
@@ -45,7 +43,6 @@ export default function MeteoReport(props) {
             startDate.toISOString().split("T")[0]
           }&end_date=${endDate.toISOString().split("T")[0]}`
         );
-        console.log(response.data);
         return response.data;
       } catch (err) {
         console.log(err);
@@ -63,7 +60,6 @@ export default function MeteoReport(props) {
 
   return (
     <Container>
-      {console.log("ccc", data)}
       <Table striped bordered hover variant="dark" size="sm">
         <thead>
           <tr>
@@ -180,7 +176,6 @@ export default function MeteoReport(props) {
             : console.log("coords", coords)}
         </tbody>
       </Table>
-      {/* {console.log("aaa", mapMarkers)} */}
     </Container>
   );
 }

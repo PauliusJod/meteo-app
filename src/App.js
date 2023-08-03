@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./App.css";
 import MeteoReport from "./Components/meteoReport";
@@ -48,21 +48,6 @@ function App() {
   const handleDataIndexChanges = (index) => {
     setDataIndexOut(index);
   };
-  useEffect(() => {
-    // console.log("tempChecked", tempChecked);
-    // console.log("precipitationChecked", precipitationChecked);
-    // console.log("rainChecked", rainChecked);
-    // console.log("cloudcoverChecked", cloudcoverChecked);
-    // console.log("windChecked", windChecked);
-    console.log(markersCoords);
-  }, [
-    tempChecked,
-    precipitationChecked,
-    windChecked,
-    rainChecked,
-    cloudcoverChecked,
-    markersCoords,
-  ]); //
   return (
     <>
       <InfoBar
@@ -81,7 +66,7 @@ function App() {
       />
       <Container>
         <Row>
-          <Col style={{ maxHeight: "20vh", border: "5px solid purple" }}>
+          <Col>
             <MeteoReport
               temp={tempChecked}
               precipitation={precipitationChecked}

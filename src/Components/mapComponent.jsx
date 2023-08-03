@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  useJsApiLoader,
-  GoogleMap,
-  //   Autocomplete,
-  //   DirectionsRenderer,
-  Marker,
-} from "@react-google-maps/api";
+import { useJsApiLoader, GoogleMap, Marker } from "@react-google-maps/api";
 import { Button } from "react-bootstrap";
 const containerStyle = {
   width: "400px",
@@ -18,9 +12,9 @@ const center = {
 };
 
 export default function MapComponent(props) {
-  const { onMarkersChanged } = props; //markers,
+  const { onMarkersChanged } = props;
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBcBm9CJ-E1wHIgkkNl7gdhPITSPFuCiJk",
+    googleMapsApiKey: "AIzaSyBcBm9CJ-E1wHIgkkNl7gdhPITSPFuCiJk", // API KEY specialiai neperkeltas į .env failą
     libraries: ["geometry", "places"],
   });
 

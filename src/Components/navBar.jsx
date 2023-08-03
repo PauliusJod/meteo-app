@@ -6,7 +6,6 @@ import {
   Col,
   Row,
   Button,
-  Card,
 } from "react-bootstrap";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
@@ -15,15 +14,10 @@ const maxDate = new Date();
 maxDate.setDate(maxDate.getDate() + 7);
 const InfoBar = (props) => {
   const {
-    // temp,
     onTempChanged,
-    // precipitation,
     onPrecipitationChanged,
-    // wind,
     onWindChanged,
-    // rain,
     onRainChanged,
-    // cloudcover,
     onCloudcoverChanged,
     onStartDateChanged,
     onEndDateChanged,
@@ -45,13 +39,6 @@ const InfoBar = (props) => {
     onStartDateChanged(startDate);
     onEndDateChanged(endDate);
   };
-  // useEffect(() => {
-  //   // console.log("tempChecked", temp);
-  //   // console.log("precipitationChecked", precipitation);
-  //   // console.log("windChecked", wind);
-  //   // console.log("rainChecked", rain);
-  //   // console.log("cloudcoverChecked", cloudcover);
-  // }, [temp, precipitation, wind, rain, cloudcover]);
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
