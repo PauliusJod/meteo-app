@@ -27,7 +27,6 @@ export default function MeteoReport(props) {
   const loadLess = () => {
     setAmountToShow(10);
   };
-  //Initiate diagram loading
   useEffect(() => {
     dataOut(data);
     dataIndexOut(choosenMarkerWeather);
@@ -39,7 +38,7 @@ export default function MeteoReport(props) {
         const response = await axios.get(
           `${API_URL}?latitude=${item.lat}&longitude=${
             item.lng
-          }&hourly=temperature_2m,precipitation_probability,rain,cloudcover&daily=weathercode&timezone=Europe%2FMoscow&start_date=${
+          }&hourly=temperature_2m,precipitation_probability,windspeed_80m,rain,cloudcover&daily=weathercode&timezone=Europe%2FMoscow&start_date=${
             startDate.toISOString().split("T")[0]
           }&end_date=${endDate.toISOString().split("T")[0]}`
         );
@@ -128,13 +127,13 @@ export default function MeteoReport(props) {
               {data &&
                 amountToShow <
                   data[choosenMarkerWeather]?.hourly?.time?.length && (
-                  <Button variant="dark" onClick={loadMore}>
+                  <Button variant="danger" onClick={loadMore}>
                     Show More
                   </Button>
                 )}
               {data && amountToShow > 10 && (
                 <Button
-                  variant="dark"
+                  variant="danger"
                   onClick={loadLess}
                   style={{ float: "right" }}
                 >
@@ -148,7 +147,7 @@ export default function MeteoReport(props) {
       {data && data.length > 0 ? (
         data.map((item, i) => (
           <Button
-            variant="dark"
+            variant="danger"
             key={i}
             onClick={() => setChoosenMarkerWeather(i)}
           >
@@ -161,8 +160,8 @@ export default function MeteoReport(props) {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>ss</th>
-            <th>ss</th>
+            <th>Latitude (Markers)</th>
+            <th>Longitude (Markers)</th>
           </tr>
         </thead>
         <tbody>

@@ -85,13 +85,19 @@ function App() {
               markers={markersCoords}
               onMarkersChanged={handleMarkersCoordsChange}
             />
+            <DiagramComponent
+              data={dataOut}
+              dataIndex={dataIndexOut}
+              precipitationIn={precipitationChecked}
+              windIn={windChecked}
+              rainIn={rainChecked}
+              cloudcoverIn={cloudcoverChecked}
+            />
           </Col>
         </Row>
         <Row>
           <Col></Col>
-          <Col>
-            <DiagramComponent data={dataOut} dataIndex={dataIndexOut} />
-          </Col>
+          <Col></Col>
         </Row>
       </Container>
     </>

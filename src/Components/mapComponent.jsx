@@ -64,7 +64,7 @@ export default function MapComponent(props) {
           : console.log("coords", coords)}
         <></>
       </GoogleMap>
-      <Button variant="dark" onClick={handleClick}>
+      <Button variant="danger" onClick={handleClick}>
         Load markers
       </Button>
     </>

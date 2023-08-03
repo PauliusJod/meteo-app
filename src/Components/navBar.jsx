@@ -25,10 +25,10 @@ const InfoBar = (props) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [tempChecked, setTempChecked] = useState(true);
-  const [precipitationChecked, setPrecipitationChecked] = useState(false);
+  const [precipitationChecked, setPrecipitationChecked] = useState(true);
   const [windChecked, setWindChecked] = useState(false);
-  const [rainChecked, setRainChecked] = useState(false);
-  const [cloudcoverChecked, setCloudcoverChecked] = useState(false);
+  const [rainChecked, setRainChecked] = useState(true);
+  const [cloudcoverChecked, setCloudcoverChecked] = useState(true);
 
   const handleClick = () => {
     onTempChanged(tempChecked);
@@ -108,7 +108,9 @@ const InfoBar = (props) => {
                   />
                 </Col>
               </Row>
-              <Button onClick={handleClick}>Filter</Button>
+              <Button variant="danger" onClick={handleClick}>
+                Filter
+              </Button>
             </Col>
           </InputGroup>
           <Col style={{ padding: "10px" }}>
@@ -121,7 +123,6 @@ const InfoBar = (props) => {
                 <DatePicker
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
-                  // timeFormat="HH:mm"
                   dateFormat="yyyy-MM-dd"
                   minDate={new Date()}
                   maxDate={maxDate}
@@ -131,7 +132,6 @@ const InfoBar = (props) => {
                 <DatePicker
                   selected={endDate}
                   onChange={(date) => setEndDate(date)}
-                  // timeFormat="HH:mm"
                   dateFormat="yyyy-MM-dd"
                   minDate={startDate}
                   maxDate={maxDate}
